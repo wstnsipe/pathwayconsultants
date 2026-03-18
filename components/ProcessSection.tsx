@@ -109,7 +109,7 @@ export default function ProcessSection() {
         {/* Bottom CTA */}
         <RevealSection delay={300} className="text-center mt-14">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-3 bg-navy text-white font-jakarta font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-navy-mid transition-colors duration-200"
           >
             Start with Step 1 — It&apos;s Free

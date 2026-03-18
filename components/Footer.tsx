@@ -1,11 +1,11 @@
 import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react'
+import Link from 'next/link'
 
 const NAV_LINKS = [
-  { label: 'About',           href: '#about'    },
-  { label: 'Services',        href: '#services' },
-  { label: 'Results',         href: '#results'  },
-  { label: 'Pricing',         href: '#pricing'  },
-  { label: 'Book a Free Call',href: '#contact'  },
+  { label: 'About',              href: '/about'        },
+  { label: 'Services',           href: '/services'     },
+  { label: 'Testimonials',       href: '/testimonials' },
+  { label: 'Book a Free Call',   href: '/contact'      },
 ]
 
 const SERVICES = [
@@ -65,12 +65,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {NAV_LINKS.map(({ label, href }) => (
                 <li key={label}>
-                  <a
+                  <Link
                     href={href}
                     className="font-inter text-white/55 text-sm hover:text-gold transition-colors duration-200"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -84,12 +84,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {SERVICES.map(s => (
                 <li key={s}>
-                  <a
-                    href="#services"
+                  <Link
+                    href="/services"
                     className="font-inter text-white/55 text-sm hover:text-gold transition-colors duration-200"
                   >
                     {s}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

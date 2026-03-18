@@ -130,7 +130,7 @@ export default function PricingOverview() {
 
                 {/* CTA */}
                 <a
-                  href="#contact"
+                  href="/contact"
                   className={`mt-auto inline-flex items-center justify-center gap-2 font-jakarta font-semibold text-sm py-4 px-6 rounded-full transition-all duration-200 active:scale-95 ${
                     featured
                       ? 'bg-gold text-navy hover:bg-gold-lt shadow-lg shadow-gold/25'
@@ -149,7 +149,7 @@ export default function PricingOverview() {
         <RevealSection delay={350} className="text-center mt-10">
           <p className="font-inter text-body text-sm">
             Pricing is customized to your business size, goals, and scope.{' '}
-            <a href="#contact" className="text-gold font-semibold hover:underline">
+            <a href="/contact" className="text-gold font-semibold hover:underline">
               View full pricing details →
             </a>
           </p>

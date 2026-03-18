@@ -1,4 +1,5 @@
 import { ArrowRight, Quote } from 'lucide-react'
+import Image from 'next/image'
 import RevealSection from './RevealSection'
 
 export default function FeaturedResult() {
@@ -46,7 +47,7 @@ export default function FeaturedResult() {
               </p>
 
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center gap-2.5 bg-gold text-navy font-jakarta font-bold px-8 py-4 rounded-full hover:bg-gold-lt active:scale-95 transition-all duration-200 shadow-lg shadow-gold/20"
               >
                 Get Results Like This
@@ -55,11 +56,26 @@ export default function FeaturedResult() {
             </div>
           </RevealSection>
 
-          {/* Right — Pull quote card */}
+          {/* Right — Photo + Pull quote card stacked */}
           <RevealSection delay={200}>
             <div className="relative">
+
+              {/* Real consulting photo sits above the quote card */}
+              <div className="relative rounded-3xl overflow-hidden mb-[-40px]">
+                <div className="relative h-52 lg:h-60">
+                  <Image
+                    src="/images/consulting-session.jpg"
+                    alt="Pathway consulting session in action"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
+                </div>
+              </div>
+
               {/* Quote card */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 lg:p-10">
+              <div className="relative z-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 lg:p-10 mx-2">
                 <Quote
                   size={40}
                   className="text-gold mb-6"
@@ -86,7 +102,7 @@ export default function FeaturedResult() {
               </div>
 
               {/* Floating result badge */}
-              <div className="absolute -bottom-5 -right-5 bg-gold text-navy rounded-2xl px-5 py-3.5 shadow-xl">
+              <div className="absolute -bottom-5 -right-5 bg-gold text-navy rounded-2xl px-5 py-3.5 shadow-xl z-20">
                 <div className="font-jakarta font-extrabold text-2xl leading-none">3×</div>
                 <div className="font-jakarta font-semibold text-[0.65rem] tracking-wide leading-none mt-1">
                   Revenue Growth

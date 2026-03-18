@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HeroSection() {
   return (
@@ -49,13 +50,13 @@ export default function HeroSection() {
           {/* CTAs */}
           <div className="hero-line-4 flex flex-wrap items-center gap-4 mb-14">
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 bg-gold text-navy font-jakarta font-bold text-[0.9375rem] px-8 py-[1.05rem] rounded-full hover:bg-[#E0BC6B] active:scale-[0.97] transition-all duration-200 shadow-[0_8px_32px_rgba(201,168,76,0.30)]"
             >
               Book Your Free 15-Min Call
               <ArrowRight size={17} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
-            <a href="#services" className="inline-flex items-center gap-2 font-jakarta font-semibold text-[0.9375rem] text-white/65 hover:text-white transition-colors duration-200">
+            <a href="/services" className="inline-flex items-center gap-2 font-jakarta font-semibold text-[0.9375rem] text-white/65 hover:text-white transition-colors duration-200">
               See how we help
               <ArrowRight size={15} strokeWidth={2} />
             </a>
@@ -77,37 +78,52 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right column — Stats card */}
-        <div className="hero-card w-full max-w-[310px] xl:max-w-[330px] flex-shrink-0 self-center">
-          <div className="relative rounded-[1.75rem] p-[1px] bg-gradient-to-br from-white/20 via-gold/25 to-white/5 shadow-[0_0_60px_rgba(201,168,76,0.10)]">
-            <div className="relative bg-[#0e1f3e] rounded-[calc(1.75rem-1px)] overflow-hidden">
-              <div className="h-[2px] w-full bg-gradient-to-r from-gold via-[#E0BC6B] to-gold/40" />
-              <div className="p-7 xl:p-8">
-                <p className="font-jakarta font-bold text-[0.65rem] tracking-[0.2em] uppercase text-gold/65 mb-6">
-                  Pathway By The Numbers
-                </p>
-                <div className="divide-y divide-white/[0.07]">
-                  {[
-                    { number: '18+',  label: 'Years of Experience',  sub: 'In the field. Not the classroom.' },
-                    { number: '100+', label: 'Businesses Helped',    sub: 'Across Alabama and beyond.'       },
-                    { number: 'Free', label: 'Initial Consultation', sub: 'No pitch. No pressure.'           },
-                  ].map((stat, i) => (
-                    <div key={i} className="py-5 flex items-center gap-4">
-                      <div className="font-jakarta font-extrabold text-[2.1rem] text-gold leading-none tracking-tight min-w-[68px]">
-                        {stat.number}
-                      </div>
-                      <div>
-                        <div className="font-jakarta font-semibold text-white text-sm leading-tight mb-0.5">{stat.label}</div>
-                        <div className="font-inter text-white/40 text-[0.72rem] leading-snug">{stat.sub}</div>
-                      </div>
+        {/* Right column — Photo card with stats overlay */}
+        <div className="hero-card w-full max-w-[310px] xl:max-w-[340px] flex-shrink-0 self-center">
+          <div className="relative rounded-[1.75rem] overflow-hidden shadow-[0_0_60px_rgba(201,168,76,0.12)] border border-white/10">
+
+            {/* Real photo */}
+            <div className="relative h-[440px] xl:h-[480px]">
+              <Image
+                src="/images/consultation.jpg"
+                alt="Pathway business consulting session"
+                fill
+                sizes="(max-width: 1024px) 0px, 340px"
+                className="object-cover object-center"
+                priority
+              />
+              {/* Dark gradient overlay — bottom-heavy so stats are readable */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/50 to-[#0a1628]/10" />
+              {/* Gold top accent */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-[#E0BC6B] to-gold/40" />
+            </div>
+
+            {/* Stats overlaid at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-2">
+              <p className="font-jakarta font-bold text-[0.62rem] tracking-[0.2em] uppercase text-gold/70 mb-3">
+                Pathway By The Numbers
+              </p>
+              <div className="divide-y divide-white/[0.1]">
+                {[
+                  { number: '18+',  label: 'Years of Experience',  sub: 'In the field. Not the classroom.' },
+                  { number: '100+', label: 'Businesses Helped',    sub: 'Across Alabama and beyond.'       },
+                  { number: 'Free', label: 'Initial Consultation', sub: 'No pitch. No pressure.'           },
+                ].map((stat, i) => (
+                  <div key={i} className="py-3 flex items-center gap-4">
+                    <div className="font-jakarta font-extrabold text-[1.9rem] text-gold leading-none tracking-tight min-w-[60px]">
+                      {stat.number}
                     </div>
-                  ))}
-                </div>
-                <div className="mt-5 pt-5 border-t border-white/[0.07]">
-                  <a href="#contact" className="block text-center font-jakarta font-bold text-[0.8125rem] text-gold hover:text-[#E0BC6B] transition-colors duration-200 tracking-wide">
-                    Start with a free call →
-                  </a>
-                </div>
+                    <div>
+                      <div className="font-jakarta font-semibold text-white text-[0.8rem] leading-tight mb-0.5">{stat.label}</div>
+                      <div className="font-inter text-white/40 text-[0.68rem] leading-snug">{stat.sub}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 pt-3 border-t border-white/[0.1]">
+                <a href="/contact" className="block text-center font-jakarta font-bold text-[0.8125rem] text-gold hover:text-[#E0BC6B] transition-colors duration-200 tracking-wide">
+                  Start with a free call →
+                </a>
               </div>
             </div>
           </div>
